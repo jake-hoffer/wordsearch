@@ -41,4 +41,13 @@ describe("WordSearch", function() {
 		expect(loadWordField).toThrow();
 		expect(wordSearch._wordField).toEqual(null);
 	});
+	it("should fail to load non-orthogonal word field", function() {
+		var loadWordField = function() {
+			return wordSearch.setWordField(exampleWordFieldNonOrthogonal);
+		};
+		expect(loadWordField).toThrow();
+		expect(wordSearch._wordField).toEqual(null);
+	});
+
+	// End word field loading tests
 });
