@@ -1,0 +1,19 @@
+{
+  "name": "WordSearch",
+  "version": "1.0.0",
+  "description": "Word search Kata implemented as a JavaScript class.",
+  "main": "app/WordSearch.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "wordsearch"
+  },
+  "author": "Jake Hoffer",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine-node": "^3.0.0",
+    "save": "^2.4.0"
+  }
+}
