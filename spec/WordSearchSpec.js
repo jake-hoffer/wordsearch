@@ -17,4 +17,14 @@ describe("WordSearch", function() {
 	beforeEach(function() {
 		wordSearch = new WordSearch();
 	});
+
+	// Begin word field loading tests using word field format defined in project requirements
+
+	it("should load a valid word field", function() {
+		var loadWordField = function() {
+			return wordSearch.setWordField(exampleWordField);
+		};
+		expect(loadWordField()).toBeTruthy();
+		expect(wordSearch._wordField).toEqual("UMKHULKINVJOCWELLSHKZZWZCGJUYGHSUPJPRJDHSBXTGBRJSOEQETIKKGLEAYOAGCIRDQHRTCDSCOTTYKZREPPXPFBLQSLNEEEVULFMZOKRIKAMMRMFBAPPNUIIYHQMEMQRYFSEYZYGKQJPCQWYAKSJFZMQIBDBEMKWDTGLBHCBECHTOYIKOJYEULNCCLYBZUHWZMISUKURBIDUXSKYLBQQPMDFCKEAB");
+	});
 });
