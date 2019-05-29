@@ -60,4 +60,11 @@ describe("WordSearch", function() {
 		expect(loadWordList()).toBeTruthy();
 		expect(wordSearch._wordList).toEqual(["BONES","KHAN","KIRK","SCOTTY","SPOCK","SULU","UHURA"]);
 	});
+	it("should fail to load a word list with lowercase letters", function() {
+		var loadWordList = function() {
+			return wordSearch.setWordList(exampleWordListLowerCase);
+		};
+		expect(loadWordList).toThrow();
+		expect(wordSearch._wordList).toEqual(null);
+	});
 });

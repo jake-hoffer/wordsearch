@@ -27,6 +27,11 @@ class WordSearch {
 		// re-initialize this in case setWordField has been called more than once
 		this._wordList = null;
 
+		if (!(typeof inputWordList === 'string' && (new RegExp('^[A-Z][A-Z]+(,[A-Z][A-Z]+)*$')).test(inputWordList))) {
+			throw new Error("Word list should comprise a set of 1 or more comma-separated uppercase words of minimum 2 characters");
+			return false;
+		}
+
 		this._wordList = inputWordList.split(',');
 
 		return true;
