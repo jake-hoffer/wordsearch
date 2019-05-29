@@ -100,4 +100,10 @@ describe("WordSearch", function() {
 		};
 		expect(loadPuzzle).toThrow();
 	});
+	it("should fail to load a full puzzle with only a word list", function() {
+		var loadPuzzle = function() {
+			return wordSearch.setPuzzle(exampleWordList);
+		};
+		expect(loadPuzzle).toThrow();
+	});
 });
