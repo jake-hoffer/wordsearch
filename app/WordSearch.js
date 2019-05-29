@@ -24,7 +24,7 @@ class WordSearch {
 		return true;
 	}
 	setWordList(inputWordList) {
-		// re-initialize this in case setWordField has been called more than once
+		// re-initialize this in case setWordList has been called more than once
 		this._wordList = null;
 
 		if (!(typeof inputWordList === 'string' && (new RegExp('^[A-Z][A-Z]+(,[A-Z][A-Z]+)*$')).test(inputWordList))) {
@@ -33,6 +33,18 @@ class WordSearch {
 		}
 
 		this._wordList = inputWordList.split(',');
+
+		return true;
+	}
+	setPuzzle(inputPuzzle) {
+		let rows = inputPuzzle.split('\n');
+
+		let inputWordList = rows.shift();
+		let inputWordField = rows.join("\n");
+
+		if (!(this.setWordField(inputWordField) && this.setWordList(inputWordList))) {
+			return false;
+		}
 
 		return true;
 	}

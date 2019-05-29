@@ -83,4 +83,15 @@ describe("WordSearch", function() {
 	});
 
 	// End word list loading tests
+
+	// Begin full puzzle loading tests using format defined in project requirements
+
+	it("should load a full valid puzzle", function() {
+		var loadPuzzle = function() {
+			return wordSearch.setPuzzle(exampleWordList + "\n" + exampleWordField);
+		};
+		expect(loadPuzzle()).toBeTruthy();
+		expect(wordSearch._wordField).toEqual("UMKHULKINVJOCWELLSHKZZWZCGJUYGHSUPJPRJDHSBXTGBRJSOEQETIKKGLEAYOAGCIRDQHRTCDSCOTTYKZREPPXPFBLQSLNEEEVULFMZOKRIKAMMRMFBAPPNUIIYHQMEMQRYFSEYZYGKQJPCQWYAKSJFZMQIBDBEMKWDTGLBHCBECHTOYIKOJYEULNCCLYBZUHWZMISUKURBIDUXSKYLBQQPMDFCKEAB");
+		expect(wordSearch._wordList).toEqual(["BONES","KHAN","KIRK","SCOTTY","SPOCK","SULU","UHURA"]);
+	});
 });
