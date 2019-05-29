@@ -106,4 +106,12 @@ describe("WordSearch", function() {
 		};
 		expect(loadPuzzle).toThrow();
 	});
+	it("should fail to load an full puzzle with an invalid component", function() {
+		var loadPuzzle = function() {
+			return wordSearch.setPuzzle(exampleWordListLowerCase + "\n" + exampleWordField);
+		};
+		expect(loadPuzzle).toThrow();
+	});
+
+	// End full puzzle loading tests
 });
