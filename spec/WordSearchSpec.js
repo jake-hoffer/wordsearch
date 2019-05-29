@@ -74,4 +74,13 @@ describe("WordSearch", function() {
 		expect(loadWordList).toThrow();
 		expect(wordSearch._wordList).toEqual(null);
 	});
+	it("should fail to load a word list with a word shorter than 2 characters", function() {
+		var loadWordList = function() {
+			return wordSearch.setWordList(exampleWordListTruncated);
+		};
+		expect(loadWordList).toThrow();
+		expect(wordSearch._wordList).toEqual(null);
+	});
+
+	// End word list loading tests
 });
