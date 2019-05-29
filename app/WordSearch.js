@@ -23,5 +23,13 @@ class WordSearch {
 
 		return true;
 	}
+	setWordList(inputWordList) {
+		// re-initialize this in case setWordField has been called more than once
+		this._wordList = null;
+
+		this._wordList = inputWordList.split(',');
+
+		return true;
+	}
 }
 module.exports = WordSearch

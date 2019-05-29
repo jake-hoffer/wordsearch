@@ -50,4 +50,14 @@ describe("WordSearch", function() {
 	});
 
 	// End word field loading tests
+
+	// Begin word list loading tests using word list format defined in project requirements
+
+	it("should load a valid word list", function() {
+		var loadWordList = function() {
+			return wordSearch.setWordList(exampleWordList);
+		};
+		expect(loadWordList()).toBeTruthy();
+		expect(wordSearch._wordList).toEqual(["BONES","KHAN","KIRK","SCOTTY","SPOCK","SULU","UHURA"]);
+	});
 });
