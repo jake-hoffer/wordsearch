@@ -34,4 +34,11 @@ describe("WordSearch", function() {
 		expect(loadWordField).toThrow();
 		expect(wordSearch._wordField).toEqual(null);
 	});
+	it("should fail to load word field with non-alphabetic characters", function() {
+		var loadWordField = function() {
+			return wordSearch.setWordField(exampleWordFieldNonAlphabetic);
+		};
+		expect(loadWordField).toThrow();
+		expect(wordSearch._wordField).toEqual(null);
+	});
 });
