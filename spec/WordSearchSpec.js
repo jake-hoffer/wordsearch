@@ -67,4 +67,11 @@ describe("WordSearch", function() {
 		expect(loadWordList).toThrow();
 		expect(wordSearch._wordList).toEqual(null);
 	});
+	it("should fail to load a word list with non-alphabetic characters", function() {
+		var loadWordList = function() {
+			return wordSearch.setWordList(exampleWordListNonAlphabetic);
+		};
+		expect(loadWordList).toThrow();
+		expect(wordSearch._wordList).toEqual(null);
+	});
 });
