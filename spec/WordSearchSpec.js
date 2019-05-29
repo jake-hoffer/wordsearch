@@ -94,4 +94,10 @@ describe("WordSearch", function() {
 		expect(wordSearch._wordField).toEqual("UMKHULKINVJOCWELLSHKZZWZCGJUYGHSUPJPRJDHSBXTGBRJSOEQETIKKGLEAYOAGCIRDQHRTCDSCOTTYKZREPPXPFBLQSLNEEEVULFMZOKRIKAMMRMFBAPPNUIIYHQMEMQRYFSEYZYGKQJPCQWYAKSJFZMQIBDBEMKWDTGLBHCBECHTOYIKOJYEULNCCLYBZUHWZMISUKURBIDUXSKYLBQQPMDFCKEAB");
 		expect(wordSearch._wordList).toEqual(["BONES","KHAN","KIRK","SCOTTY","SPOCK","SULU","UHURA"]);
 	});
+	it("should fail to load a full puzzle without a word list", function() {
+		var loadPuzzle = function() {
+			return wordSearch.setPuzzle(exampleWordField);
+		};
+		expect(loadPuzzle).toThrow();
+	});
 });
