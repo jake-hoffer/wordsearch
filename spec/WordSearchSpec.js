@@ -27,4 +27,11 @@ describe("WordSearch", function() {
 		expect(loadWordField()).toBeTruthy();
 		expect(wordSearch._wordField).toEqual("UMKHULKINVJOCWELLSHKZZWZCGJUYGHSUPJPRJDHSBXTGBRJSOEQETIKKGLEAYOAGCIRDQHRTCDSCOTTYKZREPPXPFBLQSLNEEEVULFMZOKRIKAMMRMFBAPPNUIIYHQMEMQRYFSEYZYGKQJPCQWYAKSJFZMQIBDBEMKWDTGLBHCBECHTOYIKOJYEULNCCLYBZUHWZMISUKURBIDUXSKYLBQQPMDFCKEAB");
 	});
+	it("should fail to load word field with lowercase letters", function() {
+		var loadWordField = function() {
+			return wordSearch.setWordField(exampleWordFieldLowerCase);
+		};
+		expect(loadWordField).toThrow();
+		expect(wordSearch._wordField).toEqual(null);
+	});
 });

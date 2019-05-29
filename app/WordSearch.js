@@ -10,6 +10,12 @@ class WordSearch {
 		this._wordField = null;
 		this._rowLength = null;
 
+		let wordFieldLineCount = (inputWordField.match(/\n/g) || []).length;
+		if (!(typeof inputWordField === 'string' && (new RegExp('^(([A-Z],){' + wordFieldLineCount + '}[A-Z]\\n){' + wordFieldLineCount + '}(([A-Z],){' + wordFieldLineCount + '}[A-Z])$')).test(inputWordField))) {
+			throw new Error("Word field should be a square of uppercase characters that is horizontally comma-separated and vertically newline-separated, as such:\n\tA,B,C\n\tD,E,F\n\tG,H,I");
+			return false;
+		}
+
 		let rows = inputWordField.split('\n'); // Split into array by newline
 
 		this._rowLength = rows[0].replace(/,/g, '').length;
