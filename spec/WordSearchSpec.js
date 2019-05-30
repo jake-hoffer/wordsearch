@@ -162,5 +162,9 @@ describe("WordSearch", function() {
 		wordSearch._rowLength = 5;
 		expect(wordSearch._buildRegex("ABC", wordSearch._orientations.horizontal_left)).toEqual(/^((?:.{5})*.{0,2})C.{0}B.{0}A/);
 	});
+	it("should return correct regex for ABC vertical-up in a 5x5 puzzle", function() {
+		wordSearch._rowLength = 5;
+		expect(wordSearch._buildRegex("ABC", wordSearch._orientations.vertical_up)).toEqual(/^((?:.{5})*.{0,4})C.{4}B.{4}A/);
+	});
 
 });
