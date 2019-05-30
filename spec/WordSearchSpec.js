@@ -211,5 +211,8 @@ describe("WordSearch", function() {
 	it("should solve the word BONES", function() {
 		expect(wordSearch._solveWord("BONES")).toEqual([ [ 0, 6 ], [ 0, 7 ], [ 0, 8 ], [ 0, 9 ], [ 0, 10 ] ]); // vertical-down
 	});
+	it("should solve the word KHAN", function() {
+		expect(wordSearch._solveWord("KHAN")).toEqual([ [ 5, 9 ], [ 5, 8 ], [ 5, 7 ], [ 5, 6 ] ]); // vertical-up
+	});
 
 });
