@@ -129,5 +129,9 @@ describe("WordSearch", function() {
 		wordSearch._rowLength = 5;
 		expect(wordSearch._buildRegex("ABC", wordSearch._orientations.diagonal_right_down)).toEqual(/^((?:.{5})*.{0,2})A.{5}B.{5}C/);
 	});
+	it("should return correct regex for ABC diagonal-left-down in a 5x5 puzzle", function() {
+		wordSearch._rowLength = 5;
+		expect(wordSearch._buildRegex("ABC", wordSearch._orientations.diagonal_left_down)).toEqual(/^((?:.{5})*.{2,4})A.{3}B.{3}C/);
+	});
 
 });
