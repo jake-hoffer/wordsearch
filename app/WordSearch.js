@@ -144,5 +144,17 @@ class WordSearch {
 		}
 		return false;
 	}
+	_solvePuzzle() {
+		if (!this._wordList) {
+			throw new Error("Word list is empty");
+			return false;
+		}
+
+		let solution = {};
+		this._wordList.forEach(function(word) {
+			solution[word] = this._solveWord(word);
+		}, this);
+		return solution;
+	}
 }
 module.exports = WordSearch
