@@ -181,5 +181,8 @@ describe("WordSearch", function() {
 	it("should return correct coordinates for a 3-letter word found in vertical-down orientation beginning at (2,2)", function() {
 		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.vertical_down)).toEqual([ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ] ]);
 	});
+	it("should return correct coordinates for a 3-letter word found in diagonal-right-down orientation beginning at (2,2)", function() {
+		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.diagonal_right_down)).toEqual([ [ 2, 2 ], [ 3, 3 ], [ 4, 4 ] ]);
+	});
 
 });
