@@ -214,5 +214,8 @@ describe("WordSearch", function() {
 	it("should solve the word KHAN", function() {
 		expect(wordSearch._solveWord("KHAN")).toEqual([ [ 5, 9 ], [ 5, 8 ], [ 5, 7 ], [ 5, 6 ] ]); // vertical-up
 	});
+	it("should solve the word KIRK", function() {
+		expect(wordSearch._solveWord("KIRK")).toEqual([ [ 4, 7 ], [ 3, 7 ], [ 2, 7 ], [ 1, 7 ] ]); // horizontal-left
+	});
 
 });
