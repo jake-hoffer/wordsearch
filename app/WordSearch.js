@@ -63,6 +63,9 @@ class WordSearch {
 
 		return true;
 	}
+	_deriveWordDirection(orientationConfig) {
+		return (orientationConfig.verticalShift == 0 ? orientationConfig.horizontalShift : orientationConfig.verticalShift) >= 0 ? 1 : -1;
+	}
 	_buildRegex(word, orientationConfig) {
 		return new RegExp(
 			'^(' // Initialize offset capture group, anchored to beginning of wordfield
