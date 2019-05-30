@@ -226,5 +226,8 @@ describe("WordSearch", function() {
 	it("should solve the word SULU", function() {
 		expect(wordSearch._solveWord("SULU")).toEqual([ [ 3, 3 ], [ 2, 2 ], [ 1, 1 ], [ 0, 0 ] ]); // diagonal-left-up
 	});
+	it("should solve the word UHURA", function() {
+		expect(wordSearch._solveWord("UHURA")).toEqual([ [ 4, 0 ], [ 3, 1 ], [ 2, 2 ], [ 1, 3 ], [ 0, 4 ] ]); // diagonal-left-down
+	});
 
 });
