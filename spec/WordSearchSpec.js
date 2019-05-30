@@ -196,5 +196,8 @@ describe("WordSearch", function() {
 	it("should return correct coordinates for a 3-letter word found in diagonal-left-up orientation ending at (2,2)", function() {
 		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.diagonal_left_up)).toEqual([ [ 4, 4 ], [ 3, 3 ], [ 2, 2 ] ]);
 	});
+	it("should return correct coordinates for a 3-letter word found in diagonal-right-up orientation ending at (2,2)", function() {
+		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.diagonal_right_up)).toEqual([ [ 0, 4 ], [ 1, 3 ], [ 2, 2 ] ]);
+	});
 
 });
