@@ -119,5 +119,30 @@ class WordSearch {
 		}
 		return coordinates;
 	}
+	_solveWord(word) {
+		if (!this._wordField) {
+			throw new Error("Word field is empty");
+			return false;
+		}
+
+		if (word.length > this._rowLength) {
+			// Do not throw an error; this is not illegal behavior, but we'll never find a match for this word.
+			return false;
+		}
+		for (let orientation in this._orientations) {
+			let regex = this._buildRegex(word, this._orientations[orientation]);
+
+			if (regex.test(this._wordField)) { // Do we have a match?
+				let matches = this._wordField.match(regex); // Get matched components
+				let offset = matches[1].length; // Substring from start until position of first character is stored in first capture group
+
+				let startRow = Math.floor(offset / this._rowLength); // On which row does the offset occur?
+				let startColumn = offset % this._rowLength; // In which column of that row does the offset occur?
+				
+				return this._calculateCoordinates(startColumn, startRow, word.length, this._orientations[orientation]);
+			}
+		}
+		return false;
+	}
 }
 module.exports = WordSearch

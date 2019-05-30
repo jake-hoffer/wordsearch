@@ -199,5 +199,17 @@ describe("WordSearch", function() {
 	it("should return correct coordinates for a 3-letter word found in diagonal-right-up orientation ending at (2,2)", function() {
 		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.diagonal_right_up)).toEqual([ [ 0, 4 ], [ 1, 3 ], [ 2, 2 ] ]);
 	});
+	
+	// End puzzle utility tests
+
+	// Begin tests with actual provided sample data
+
+	beforeEach(function() {
+		wordSearch.setPuzzle(exampleWordList + "\n" + exampleWordField);
+	});
+
+	it("should solve the word BONES", function() {
+		expect(wordSearch._solveWord("BONES")).toEqual([ [ 0, 6 ], [ 0, 7 ], [ 0, 8 ], [ 0, 9 ], [ 0, 10 ] ]); // vertical-down
+	});
 
 });
