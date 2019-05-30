@@ -22,8 +22,8 @@ This class locates words in 2 directions on 4 axes within a square field of newl
 
 ## Usage
 
-- Create an empty directory, and initialize jasmine-node using `npm install jasmine-node`
-- Clone git://github.com/jake-hoffer/wordsearch into that directory
+- Create an empty directory, and clone git://github.com/jake-hoffer/wordsearch into that directory
+- Initialize jasmine-node using `npm install jasmine-node`
 - Run `npm test` to view the jasmine test output.
 
 ### Notes
