@@ -234,4 +234,7 @@ describe("WordSearch", function() {
 		expect(wordSearch._solveWord("CHEWY")).toEqual([ [ 8, 12 ], [ 9, 11 ], [ 10, 10 ], [ 11, 9 ], [ 12, 8 ] ]); // diagonal-right-up
 	});
 
+	it("should fail to solve the word PICARD, which does not exist", function() {
+		expect(wordSearch._solveWord("PICARD")).toEqual(false);
+	});
 });
