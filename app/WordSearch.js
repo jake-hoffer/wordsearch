@@ -156,5 +156,32 @@ class WordSearch {
 		}, this);
 		return solution;
 	}
+	_solutionToString(solution) {
+		let solutionParts = [];
+		for (let word in solution) {
+			let wordString = word + ":\t";
+			let coordinates = solution[word];
+			if (typeof coordinates === 'object' && coordinates.length) {
+				coordinates = coordinates.map(function(coordinate) {
+					return '(' + coordinate[0] + ',' + coordinate[1] + ')';
+				});
+				wordString += coordinates.join(',');
+			}
+			else {
+				wordString += 'not found';
+			}
+			solutionParts.push(wordString);
+		}
+		return solutionParts.join("\n");
+	}
+	solvePuzzle() {
+		let solution = this._solvePuzzle();
+		if (solution) {
+			return this._solutionToString(solution);
+		}
+		else {
+			return null;
+		}
+	}
 }
 module.exports = WordSearch
