@@ -114,4 +114,12 @@ describe("WordSearch", function() {
 	});
 
 	// End full puzzle loading tests
+
+	// Begin puzzle utility tests - make sure everything returns correct values using contrived data
+
+	it("should return correct regex for ABC horizontal-right in a 5x5 puzzle", function() {
+		wordSearch._rowLength = 5;
+		expect(wordSearch._buildRegex("ABC", wordSearch._orientations.horizontal_right)).toEqual(/^((?:.{5})*.{0,2})A.{0}B.{0}C/);
+	});
+
 });
