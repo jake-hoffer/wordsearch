@@ -220,5 +220,8 @@ describe("WordSearch", function() {
 	it("should solve the word SCOTTY", function() {
 		expect(wordSearch._solveWord("SCOTTY")).toEqual([ [ 0, 5 ], [ 1, 5 ], [ 2, 5 ], [ 3, 5 ], [ 4, 5 ], [ 5, 5 ] ]); // horizontal-right
 	});
+	it("should solve the word SPOCK", function() {
+		expect(wordSearch._solveWord("SPOCK")).toEqual([ [ 2, 1 ], [ 3, 2 ], [ 4, 3 ], [ 5, 4 ], [ 6, 5 ] ]); // diagonal-right-down
+	});
 
 });
