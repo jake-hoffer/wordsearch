@@ -28,6 +28,6 @@ This class locates words in 2 directions on 4 axes within a square field of newl
 
 ### Notes
 
-- Tested using node v11.14.0 and jasmine-node (Ubuntu 18.04)
+- Tested on Ubuntu 18.04 using node 11.14.0, npm 6.9.0, and jasmine-node 3.0.0
 - Truly "private" methods are not possible within classes in JavaScript. However, a Google search about this issue reveals that a common strategy is to prepend an `_` to methods that are not expected to be called from outside the class itself. In this implementation, validation is not performed on arguments to such methods, as they are intended for internal use, and any data given to them has already been pre-validated. Additionally, having all methods exposed allows more in-depth testing.
 - Words can theoretically exist more than once within a grid. In these cases, only one instance is returned (in order of axis and then position in the grid).
