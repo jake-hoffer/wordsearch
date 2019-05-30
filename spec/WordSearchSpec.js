@@ -178,5 +178,8 @@ describe("WordSearch", function() {
 	it("should return correct coordinates for a 3-letter word found in horizontal-right orientation beginning at (2,2)", function() {
 		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.horizontal_right)).toEqual([ [ 2, 2 ], [ 3, 2 ], [ 4, 2 ] ]);
 	});
+	it("should return correct coordinates for a 3-letter word found in vertical-down orientation beginning at (2,2)", function() {
+		expect(wordSearch._calculateCoordinates(2, 2, 3, wordSearch._orientations.vertical_down)).toEqual([ [ 2, 2 ], [ 2, 3 ], [ 2, 4 ] ]);
+	});
 
 });
