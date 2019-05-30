@@ -237,4 +237,7 @@ describe("WordSearch", function() {
 	it("should fail to solve the word PICARD, which does not exist", function() {
 		expect(wordSearch._solveWord("PICARD")).toEqual(false);
 	});
+	it("should fail to solve the word WELLS, which wraps to the next line", function() {
+		expect(wordSearch._solveWord("WELLS")).toEqual(false);
+	});
 });
