@@ -230,4 +230,8 @@ describe("WordSearch", function() {
 		expect(wordSearch._solveWord("UHURA")).toEqual([ [ 4, 0 ], [ 3, 1 ], [ 2, 2 ], [ 1, 3 ], [ 0, 4 ] ]); // diagonal-left-down
 	});
 
+	it("should solve the word CHEWY, which appears incidentally but is not in the given list", function() {
+		expect(wordSearch._solveWord("CHEWY")).toEqual([ [ 8, 12 ], [ 9, 11 ], [ 10, 10 ], [ 11, 9 ], [ 12, 8 ] ]); // diagonal-right-up
+	});
+
 });
