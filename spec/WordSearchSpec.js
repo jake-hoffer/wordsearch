@@ -120,6 +120,9 @@ describe("WordSearch", function() {
 	it("should return word direction 1 for horizontal-right orientation", function() {
 		expect(wordSearch._deriveWordDirection(wordSearch._orientations.horizontal_right)).toEqual(1);
 	});
+	it("should return word direction 1 for vertical-down orientation", function() {
+		expect(wordSearch._deriveWordDirection(wordSearch._orientations.vertical_down)).toEqual(1);
+	});
 
 	it("should return correct regex for ABC horizontal-right in a 5x5 puzzle", function() {
 		wordSearch._rowLength = 5;
