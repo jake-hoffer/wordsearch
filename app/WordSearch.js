@@ -67,20 +67,22 @@ class WordSearch {
 		return (orientationConfig.verticalShift == 0 ? orientationConfig.horizontalShift : orientationConfig.verticalShift) >= 0 ? 1 : -1;
 	}
 	_buildRegex(word, orientationConfig) {
+		let wordDirection = this._deriveWordDirection(orientationConfig);
+
 		return new RegExp(
 			'^(' // Initialize offset capture group, anchored to beginning of wordfield
 				+ '(?:.{' + this._rowLength + '})*' // Begin offset with any number of full rows
 
 				+ '.{' // Once at the desired row, offset any number of columns that would allow the word to be found in the correct orientation without wrapping around
-					+ (orientationConfig.horizontalShift < 0 ? word.length - 1 : 0) // If the match moves right-to-left horizontally (-1), there needs to be enough horizontal room ahead of the first matched letter to accommodate the previous letters without wrapping; otherwise, no extra lead is required.
+					+ (orientationConfig.horizontalShift * wordDirection < 0 ? word.length - 1 : 0) // If the match moves right-to-left horizontally (-1), there needs to be enough horizontal room ahead of the first matched letter to accommodate the previous letters without wrapping; otherwise, no extra lead is required.
 				+ ','
-					+ (orientationConfig.horizontalShift > 0 ? this._rowLength - word.length : this._rowLength - 1) // If the match moves left-to-right horizontally (1), there needs to be enough horizontal room after of the first matched letter to accommodate the subsequent letters without wrapping; otherwise, no extra lag is required.
+					+ (orientationConfig.horizontalShift * wordDirection > 0 ? this._rowLength - word.length : this._rowLength - 1) // If the match moves left-to-right horizontally (1), there needs to be enough horizontal room after of the first matched letter to accommodate the subsequent letters without wrapping; otherwise, no extra lag is required.
 				+ '}'
 
 			+ ')' // Close offset capture group
 
-			+ word.split('')
-				.join('.{' + (orientationConfig.verticalShift * this._rowLength - (1 - orientationConfig.horizontalShift)) + '}') // Look for letters separated by N characters
+			+ (wordDirection > 0 ? word.split('') : word.split('').reverse()) // Use the appropriate word orientation
+				.join('.{' + (orientationConfig.verticalShift * wordDirection * this._rowLength - (1 - orientationConfig.horizontalShift * wordDirection)) + '}') // Look for letters separated by N characters
 					/*
 					explanation: how many characters apart will subsequent letters be in the wordfield-converted-to-string?
 
