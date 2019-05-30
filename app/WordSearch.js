@@ -100,5 +100,24 @@ class WordSearch {
 					*/
 		);
 	}
+	_calculateCoordinates(startColumn, startRow, wordLength, orientationConfig) {
+		let coordinates = []; // Initialize coordinates list
+		let wordDirection = this._deriveWordDirection(orientationConfig);
+
+		for (let letterIdx = 0; letterIdx < wordLength; letterIdx++) {
+			let coordinate = [
+				(startColumn + (letterIdx * orientationConfig.horizontalShift * wordDirection)), // Add horizontal delta from original column, based on configured horizontal orientation
+				(startRow + (letterIdx * orientationConfig.verticalShift * wordDirection)) // Add vertical delta from original row, based on configured vertical orientation
+			];
+
+			if (wordDirection > 0) {
+				coordinates.push(coordinate); // If we found the word forwards, the next coordinate comes logically after the previous one.
+			}
+			else {
+				coordinates.unshift(coordinate); // If we found the word backwards, the next coordinate comes logically before the previous one.
+			}
+		}
+		return coordinates;
+	}
 }
 module.exports = WordSearch
