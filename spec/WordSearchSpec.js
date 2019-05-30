@@ -217,5 +217,8 @@ describe("WordSearch", function() {
 	it("should solve the word KIRK", function() {
 		expect(wordSearch._solveWord("KIRK")).toEqual([ [ 4, 7 ], [ 3, 7 ], [ 2, 7 ], [ 1, 7 ] ]); // horizontal-left
 	});
+	it("should solve the word SCOTTY", function() {
+		expect(wordSearch._solveWord("SCOTTY")).toEqual([ [ 0, 5 ], [ 1, 5 ], [ 2, 5 ], [ 3, 5 ], [ 4, 5 ], [ 5, 5 ] ]); // horizontal-right
+	});
 
 });
